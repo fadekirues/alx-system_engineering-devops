@@ -35,18 +35,18 @@ defaults
 
 
 
-# start of parameters for Fecochuks.tech
+# start of parameters for Fadekirues.tech
 frontend Fadekirues.tech-http-frontend
         bind     *:80
         redirect scheme https code 301 if !{ ssl_fc }
         http-request set-header X-Forwarded-Proto http
-        default_backend  Fecochuks.tech-backend
+        default_backend  Fadekirues.tech-backend
 frontend Fadekirues.tech-https-frontend
-        bind *:443 ssl crt /etc/letsencrypt/live/www.Fecochuks.tech/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.Fadekirues.tech/fullchain.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend Fecochuks.tech-backend
+        default_backend Fadekirues.tech-backend
 backend Fadekirues.tech-backend
-        balance roundrobin        server 154033-web-01 34.229.184.90:80 check
-        server 154033-web-02 54.175.144.150:80 check
+        balance roundrobin        server 154033-web-01 54.160.68.207:80 check
+        server 154033-web-02 54.146.67.221:80 check
 # end of parameters
                                          

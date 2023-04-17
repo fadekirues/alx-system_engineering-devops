@@ -1,4 +1,4 @@
-#i want to start up my firewall
+#enabling firewall
 sudo ufw status
 sudo ufw allow 22
 sudo ufw allow https

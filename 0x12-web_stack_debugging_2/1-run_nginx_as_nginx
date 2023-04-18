@@ -1,9 +1,10 @@
-#!/usr/bin/env bash                                                            
-# This will set up Nginx to run as nginx user                                                          
-pkill apache2
-sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/d\
-efault
-chown nginx:nginx /etc/nginx/nginx.conf
-chmod 700 /etc/nginx/nginx.conf
-service nginx reload
-service nginx restart
+#!/usr/bin/env bash
+# Bash script that configures the script to fit the below requirements
+# nginx must be running as nginx user
+# nginx must be listening on all active IPs on port 8080
+# You cannot use apt-get remove
+useradd -r -s /bin/false nginx
+sed -i 's/listen       80;/listen       8080;/g' /etc/nginx/nginx.conf
+chown -R nginx:nginx /var/lib/nginx
+chown -R nginx:nginx /var/log/nginx
+sudo service nginx restart
